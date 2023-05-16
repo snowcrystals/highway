@@ -27,7 +27,8 @@
 		"prepack": "pinst --disable",
 		"postpack": "pinst --enable",
 		"bump": "cliff-jumper",
-		"docs": "typedoc-json-parser"
+		"docs": "typedoc-json-parser",
+		"test": "vitest run"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.3",
@@ -51,10 +52,13 @@
 		"tsup": "^6.7.0",
 		"typedoc": "^0.24.7",
 		"typedoc-json-parser": "^8.1.0",
-		"typescript": "5.0.4"
+		"typescript": "5.0.4",
+		"vitest": "^0.31.0"
 	},
 	"dependencies": {
-		"express": "4.18.2"
+		"@discordjs/collection": "^1.5.1",
+		"express": "4.18.2",
+		"glob": "^10.2.4"
 	},
 	"engines": {
 		"node": ">= v18.16.0"
