@@ -6,7 +6,8 @@
 		"useUnknownInCatchVariables": false,
 		"module": "ESNext",
 		"moduleResolution": "NodeNext",
-		"tsBuildInfoFile": ".tsbuildinfo"
+		"tsBuildInfoFile": ".tsbuildinfo",
+		"composite": true
 	},
 	"exclude": ["node_modules"],
 	"include": ["./src/**/*"]
