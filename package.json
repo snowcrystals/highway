@@ -26,7 +26,8 @@
 		"postinstall": "is-ci || husky install",
 		"prepack": "pinst --disable",
 		"postpack": "pinst --enable",
-		"bump": "cliff-jumper"
+		"bump": "cliff-jumper",
+		"docs": "typedoc-json-parser"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.3",
@@ -47,6 +48,8 @@
 		"pinst": "^3.0.0",
 		"prettier": "^2.8.8",
 		"tsup": "^6.7.0",
+		"typedoc": "^0.24.7",
+		"typedoc-json-parser": "^8.1.0",
 		"typescript": "5.0.4"
 	},
 	"engines": {
