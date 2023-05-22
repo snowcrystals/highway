@@ -41,7 +41,7 @@ export class Route<TServer extends Server = Server> {
 	}
 
 	private loadRoute(route: MethodCallback, routePath: string, method: string) {
-		const [, ...middlewareIds] = (this.middleware.find((array) => array[0] === Symbol(`HTTP-${method}`)) ?? []) as string[];
+		// const [, ...middlewareIds] = (this.middleware.find((array) => array[0] === Symbol(`HTTP-${method}`)) ?? []) as string[];
 		// TODO: find middleware
 
 		const context = {};
