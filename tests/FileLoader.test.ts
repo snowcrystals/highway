@@ -1,5 +1,5 @@
 import { join } from "node:path";
-import FileLoader from "../src/lib/Handlers/FileLoader.js";
+import FileLoader from "../src/lib/handlers/FileLoader.js";
 import { Collection } from "@discordjs/collection";
 
 function isClass(input: unknown) {
