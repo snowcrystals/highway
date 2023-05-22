@@ -17,7 +17,7 @@ export class RouteHandler extends FileLoader<Route> {
 				const route = new construct(file, originalRoute);
 
 				this.collection.set(originalRoute, route);
-				route.load(server);
+				route.onLoad(server);
 			}
 		}
 	}
