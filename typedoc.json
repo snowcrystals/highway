@@ -3,5 +3,6 @@
 	"entryPoints": ["src/index.ts"],
 	"json": "docs/api.json",
 	"tsconfig": "tsconfig.json",
-	"excludeExternals": true
+	"excludeExternals": true,
+	"compilerOptions": { "skipLibCheck": true }
 }
