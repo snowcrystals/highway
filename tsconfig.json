@@ -7,7 +7,12 @@
 		"module": "ESNext",
 		"moduleResolution": "NodeNext",
 		"tsBuildInfoFile": ".tsbuildinfo",
-		"composite": true
+		"composite": true,
+		"paths": {
+			"#types/*": ["./src/lib/types/*"],
+			"#structures/*": ["./src/lib/structures/*"],
+			"#handlers/*": ["./src/lib/handlers/*"]
+		}
 	},
 	"exclude": ["node_modules"],
 	"include": ["./src/**/*"]
