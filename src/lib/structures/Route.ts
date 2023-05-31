@@ -22,7 +22,7 @@ export class Route<TServer extends Server = Server> {
 
 		for (const [method, symbol] of Object.entries(methods)) {
 			const callback = Reflect.get(this, symbol) as MethodCallback;
-			if (typeof callback === "function") this.loadRoute(callback, options.route || originalRoute, method);
+			if (typeof callback === "function") this.loadRoute(callback.bind(this), options.route || originalRoute, method);
 		}
 	}
 
@@ -51,7 +51,7 @@ export class Route<TServer extends Server = Server> {
 		const context = {};
 		const expressRouteFn = Reflect.get(this.router, method.toLowerCase()) as IRouterMatcher<any>;
 		if (typeof expressRouteFn === "function")
-			expressRouteFn(routePath, ...transformedMiddleware, (req, res, next) => route(req, res, next, context));
+			expressRouteFn.bind(this.router)(routePath, ...transformedMiddleware, (req, res, next) => route(req, res, next, context));
 	}
 }
 
