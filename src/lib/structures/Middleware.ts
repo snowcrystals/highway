@@ -17,7 +17,7 @@ export class Middleware<TServer extends Server = Server> {
 
 		for (const [method, symbol] of Object.entries(methods)) {
 			const callback = Reflect.get(this, symbol) as MethodCallback;
-			if (typeof callback === "function") this.methods.set(method, callback);
+			if (typeof callback === "function") this.methods.set(method, callback.bind(this));
 		}
 	}
 

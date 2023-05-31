@@ -25,9 +25,10 @@ export class Server {
 	 * server.listen(8080, () => console.log("Listening to port 8080!"));
 	 * ```
 	 */
-	public listen(port: number, cb?: () => void) {
-		void this.middlewareHandler.loadAll(this);
-		void this.routeHandler.loadAll(this);
+	public async listen(port: number, cb?: () => void) {
+		await this.middlewareHandler.loadAll(this);
+		await this.routeHandler.loadAll(this);
+
 		return this.express.listen(port, cb);
 	}
 
