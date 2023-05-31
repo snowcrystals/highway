@@ -28,12 +28,12 @@ jobs:
 
     steps:
       - name: Checkout Project
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@v3
 
       - name: Use Node.js v16
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: yarn
           registry-url: https://registry.npmjs.org/
 
@@ -44,7 +44,7 @@ jobs:
         run: yarn docs
 
       - name: Upload Documentation Artifacts
-        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
+        uses: actions/upload-artifact@v3
         with:
           name: docs
           path: docs/api.json
@@ -67,12 +67,12 @@ jobs:
 
     steps:
       - name: Checkout Project
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@v3
 
       - name: Use Node.js v16
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: yarn
           registry-url: https://registry.yarnpkg.org/
 
@@ -80,13 +80,13 @@ jobs:
         run: yarn --immutable
 
       - name: Download Documentation Artifacts
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
+        uses: actions/download-artifact@v3
         with:
           name: docs
           path: docs
 
       - name: Checkout Documentation Project
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@v3
         with:
           repository: "snowcrystals/docs"
           token: ${{ secrets.USER_TOKEN }}

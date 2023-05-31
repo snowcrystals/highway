@@ -60,7 +60,7 @@ jobs:
         run: yarn run lint
   Testing:
     runs-on: ubuntu-latest
-    needs: Dependencies
+    needs: Building
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
