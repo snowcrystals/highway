@@ -10,8 +10,8 @@ export default class FileLoader<V> {
 	/** A collection that holds all the loaded files */
 	public collection: Collection<string, V>;
 
-	public constructor(path: string) {
-		this.path = path;
+	public constructor(path?: string) {
+		this.path = path ?? "";
 		this.collection = new Collection();
 	}
 
@@ -20,6 +20,7 @@ export default class FileLoader<V> {
 	 * @throws InvalidDirectoryError if the provided path is not a directory
 	 */
 	protected async getFiles(): Promise<string[]> {
+		if (!this.path) return [];
 		if (!existsSync(this.path)) throw new Error("InvalidDirectory");
 		if (!statSync(this.path).isDirectory()) throw new Error("InvalidDirectory"); // TODO: replace with custom error
 

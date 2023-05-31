@@ -1,14 +1,17 @@
 import express, { type Router, type Express } from "express";
 import { RouteHandler } from "#handlers/RouteHandler.js";
+import { MiddlewareHandler } from "#handlers/MiddlewareHandler.js";
 
 export class Server {
 	public express: Express;
 
 	public readonly routeHandler: RouteHandler;
+	public readonly middlewareHandler: MiddlewareHandler;
 
 	public constructor(options: ServerOptions) {
 		this.express = express();
 		this.routeHandler = new RouteHandler(options.routePath);
+		this.middlewareHandler = new MiddlewareHandler(options.middlewarePath);
 	}
 
 	/**
@@ -23,6 +26,7 @@ export class Server {
 	 * ```
 	 */
 	public listen(port: number, cb?: () => void) {
+		void this.middlewareHandler.loadAll(this);
 		void this.routeHandler.loadAll(this);
 		return this.express.listen(port, cb);
 	}
@@ -35,4 +39,7 @@ export class Server {
 export interface ServerOptions {
 	/** The path to a directory routes */
 	routePath: string;
+
+	/** The path to a directory middleware */
+	middlewarePath: string;
 }

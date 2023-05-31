@@ -74,5 +74,8 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
+      - name: Run Compiler
+        run: yarn run build
+
       - name: Run Vitest
         run: yarn run test

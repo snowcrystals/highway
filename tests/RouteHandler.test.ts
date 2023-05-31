@@ -1,5 +1,5 @@
 import { join } from "node:path";
-import { RouteHandler } from "../src/lib/handlers/RouteHandler.js";
+import { RouteHandler } from "#handlers/RouteHandler.js";
 import { Collection } from "@discordjs/collection";
 import { Server } from "../src/Server.js";
 import { Route } from "#structures/Route.js";
@@ -26,7 +26,7 @@ describe("RouteHandler", () => {
 		const path = join(process.cwd(), "tests", "mocks", "FileLoader");
 		const loader = new RouteHandler(path);
 
-		const server = new Server({ routePath: "" });
+		const server = new Server({ routePath: "", middlewarePath: "" });
 		await loader.loadAll(server);
 
 		const mockRoute = loader.collection.get("/mock");
