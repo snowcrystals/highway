@@ -1,6 +1,7 @@
-import { Router, type IRouterMatcher } from "express";
+import { Router, type IRouterMatcher, type Request, type Response, type NextFunction } from "express";
 import type { Server } from "../../Server.js";
 import { methods, type MethodCallback } from "#types/Methods.js";
+import type { Middleware } from "./Middleware.js";
 
 export class Route<TServer extends Server = Server> {
 	/** The router responsible for handling the requests of this route */
@@ -41,12 +42,16 @@ export class Route<TServer extends Server = Server> {
 	}
 
 	private loadRoute(route: MethodCallback, routePath: string, method: string) {
-		// const [, ...middlewareIds] = (this.middleware.find((array) => array[0] === Symbol(`HTTP-${method}`)) ?? []) as string[];
-		// TODO: find middleware
+		const [, ...middlewareIds] = (this.middleware.find((array) => array[0] === Symbol(`HTTP-${method}`)) ?? []) as string[];
+		const middlewares = middlewareIds.map((id) => this.server.middlewareHandler.get(id)).filter(Boolean) as Middleware[];
+		const transformedMiddleware = middlewares.map(
+			(middleware) => (req: Request, res: Response, next: NextFunction) => middleware.call(req, res, next, context)
+		);
 
 		const context = {};
 		const expressRouteFn = Reflect.get(this.router, method.toLowerCase()) as IRouterMatcher<any>;
-		if (typeof expressRouteFn === "function") expressRouteFn(routePath, (req, res, next) => route(req, res, next, context));
+		if (typeof expressRouteFn === "function")
+			expressRouteFn(routePath, ...transformedMiddleware, (req, res, next) => route(req, res, next, context));
 	}
 }
 
