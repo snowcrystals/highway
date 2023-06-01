@@ -16,7 +16,7 @@ export class Route<TServer extends Server = Server> {
 	 */
 	public readonly middleware: [symbol, ...string[]][];
 
-	public constructor(options: Route.Options, originalRoute: string) {
+	public constructor(originalRoute: string, options: Route.Options = {}) {
 		this.router = Router();
 		this.middleware = options.middleware ?? [];
 

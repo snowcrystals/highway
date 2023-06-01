@@ -15,11 +15,11 @@ type ApplyOptionTypes = Route.Options | Middleware.Options;
  * }
  * ```
  */
-export function ApplyOptions<Options extends ApplyOptionTypes>(options: Options) {
+export function ApplyOptions<Options extends ApplyOptionTypes>(options?: Options) {
 	return (target: Constructor) =>
 		class extends target {
 			public constructor(...args: any[]) {
-				super(options, ...args);
+				super(...args, options ?? {});
 			}
 		};
 }
