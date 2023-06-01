@@ -1,7 +1,7 @@
 {
 	"project.version": "0.0.1",
 	"project.information": "Create routes and middleware using classes and a filepath based routing system like Next.js.",
-	"project.installation": ["```bash", "yarn add @snowcrystals/highway express", "npm install @snowcrystals/highway express", "```"],
+	"project.installation": ["```", "yarn add @snowcrystals/highway express", "npm install @snowcrystals/highway express", "```"],
 	"project.icon": "https://raw.githubusercontent.com/snowcrystals/.github/main/logo.png",
 	"project.extra_info": ".github/readme_extension.md"
 }
