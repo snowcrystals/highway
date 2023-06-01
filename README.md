@@ -9,7 +9,7 @@
         <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg" />
     </a>
     <a href="/LICENSE" target="_blank">
-      <img alt="License: None" src="https://img.shields.io/badge/License-None-yellow.svg" />
+      <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
     </a>
   </p>
 </div>
@@ -29,13 +29,16 @@
 
 ## Information
 
-Just a template, like an uncolored drawing. That's all. ✏️
+Create routes and middleware using classes and a filepath based routing system like Next.js.
 
 ## Install
 
-To use this template, you will need the following: `yarn` and `node >= 16.18.1`.
+```bash
+yarn add @snowcrystals/highway express
+npm install @snowcrystals/highway express
+```
 
-
+.github/readme_extension.md
 
 ## Author
 
@@ -52,6 +55,6 @@ This will always be open source project, even if I don't receive donations. But 
 
 ## License
 
-Project is licensed under the © [**None License**](/LICENSE)
+Project is licensed under the © [**MIT License**](/LICENSE)
 
 ---
