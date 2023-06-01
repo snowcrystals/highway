@@ -16,7 +16,7 @@ type ApplyOptionTypes = Route.Options | Middleware.Options;
  * ```
  */
 export function ApplyOptions<Options extends ApplyOptionTypes>(options?: Options) {
-	return (target: Constructor) =>
+	return <Class extends Constructor>(target: Class) =>
 		class extends target {
 			public constructor(...args: any[]) {
 				super(...args, options ?? {});
