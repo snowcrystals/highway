@@ -50,7 +50,7 @@ export class Middleware<TServer extends Server = Server> {
 	}
 }
 
-interface MiddlewareOptions {
+export interface MiddlewareOptions {
 	/**
 	 * The unique identifier for the middleware
 	 * @example "auth"
