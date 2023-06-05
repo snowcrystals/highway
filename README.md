@@ -6,7 +6,7 @@
   
   <p align="center">
     <a href="/">
-        <img alt="Version" src="https://img.shields.io/badge/version-1.0.1-blue.svg" />
+        <img alt="Version" src="https://img.shields.io/badge/version-1.0.2-blue.svg" />
     </a>
     <a href="/LICENSE" target="_blank">
       <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
@@ -50,8 +50,8 @@ For a non-decorator version, use a constructor and move the options to the super
 
 ```js
 class HelloWorldRoute extends Route {
-	constructor(route) {
-		super(route, options); // <-- Options are the options from the decorator, they are all optional
+	constructor() {
+		super(options); // <-- Options are the options from the decorator, they are all optional
 	}
 }
 ```
