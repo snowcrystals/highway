@@ -42,7 +42,7 @@ export class Route<TServer extends Server = Server> {
 	}
 
 	private loadRoute(route: MethodCallback, routePath: string, method: string) {
-		const [, ...middlewareIds] = (this.middleware.find((array) => array[0] === Symbol(`HTTP-${method}`)) ?? []) as string[];
+		const [, ...middlewareIds] = (this.middleware.find((array) => array[0] === Reflect.get(methods, method)) ?? []) as string[];
 		const middlewares = middlewareIds.map((id) => this.server.middlewareHandler.get(id)).filter(Boolean) as Middleware[];
 		const transformedMiddleware = middlewares.map(
 			(middleware) => (req: Request, res: Response, next: NextFunction) => middleware.call(req, res, next, context)
@@ -55,7 +55,7 @@ export class Route<TServer extends Server = Server> {
 	}
 }
 
-interface RouteOptions {
+export interface RouteOptions {
 	/**
 	 * The route that this class represents, this is automatically set but can be overwritten if necessary
 	 * @default The path between the base route directory and the file name
