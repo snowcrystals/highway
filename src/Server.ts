@@ -42,5 +42,5 @@ export interface ServerOptions {
 	routePath: string;
 
 	/** The path to a directory middleware */
-	middlewarePath: string;
+	middlewarePath?: string;
 }
