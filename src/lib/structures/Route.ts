@@ -7,6 +7,9 @@ export class Route<TServer extends Server = Server> {
 	/** The router responsible for handling the requests of this route */
 	public readonly router: Router;
 
+	/** The path for this route */
+	public route: string;
+
 	/** The express server */
 	public server!: TServer;
 
@@ -16,14 +19,10 @@ export class Route<TServer extends Server = Server> {
 	 */
 	public readonly middleware: [symbol, ...string[]][];
 
-	public constructor(originalRoute: string, options: Route.Options = {}) {
+	public constructor(options: Route.Options = {}) {
 		this.router = Router();
 		this.middleware = options.middleware ?? [];
-
-		for (const [method, symbol] of Object.entries(methods)) {
-			const callback = Reflect.get(this, symbol) as MethodCallback;
-			if (typeof callback === "function") this.loadRoute(callback.bind(this), options.route || originalRoute, method);
-		}
+		this.route = options.route ?? "";
 	}
 
 	/**
@@ -36,9 +35,15 @@ export class Route<TServer extends Server = Server> {
 	 * }
 	 * ```
 	 */
-	public onLoad(server: TServer) {
+	public onLoad(server: TServer, originalRoute: string) {
 		this.server = server;
 		this.server.addRouter(this.router);
+		this.route ||= originalRoute;
+
+		for (const [method, symbol] of Object.entries(methods)) {
+			const callback = Reflect.get(this, symbol) as MethodCallback;
+			if (typeof callback === "function") this.loadRoute(callback.bind(this), this.route, method);
+		}
 	}
 
 	private loadRoute(route: MethodCallback, routePath: string, method: string) {

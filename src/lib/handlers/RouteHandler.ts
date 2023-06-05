@@ -14,10 +14,10 @@ export class RouteHandler extends FileLoader<Route> {
 			const { default: construct } = await import(file);
 			if (typeof construct === "function" && typeof construct.prototype === "object") {
 				const originalRoute = file.replace(this.path, "").replace(".js", "");
-				const route = new construct(originalRoute);
+				const route = new construct();
 
 				this.collection.set(originalRoute, route);
-				route.onLoad(server);
+				route.onLoad(server, originalRoute);
 			}
 		}
 	}

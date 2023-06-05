@@ -10,8 +10,8 @@ For a non-decorator version, use a constructor and move the options to the super
 
 ```js
 class HelloWorldRoute extends Route {
-	constructor(route) {
-		super(route, options); // <-- Options are the options from the decorator, they are all optional
+	constructor() {
+		super(options); // <-- Options are the options from the decorator, they are all optional
 	}
 }
 ```
