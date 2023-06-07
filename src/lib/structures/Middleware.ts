@@ -3,7 +3,7 @@ import { methods, type MethodCallback } from "#types/Methods.js";
 import { Collection } from "@discordjs/collection";
 import type { Request, Response, NextFunction } from "express";
 
-export class Middleware<TServer extends Server = Server> {
+export abstract class Middleware<TServer extends Server = Server> {
 	/** The express server */
 	public server!: TServer;
 

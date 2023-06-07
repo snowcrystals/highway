@@ -3,7 +3,7 @@ import { glob } from "glob";
 import { Collection } from "@discordjs/collection";
 
 /** Base class responsible for loading the files of the provided path */
-export default class FileLoader<V> {
+export default abstract class FileLoader<V> {
 	/** The directory with all files that should be loaded */
 	public path: string;
 
