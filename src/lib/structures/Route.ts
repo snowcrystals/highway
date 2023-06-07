@@ -3,7 +3,7 @@ import type { Server } from "../../Server.js";
 import { methods, type MethodCallback } from "#types/Methods.js";
 import type { Middleware } from "./Middleware.js";
 
-export class Route<TServer extends Server = Server> {
+export abstract class Route<TServer extends Server = Server> {
 	/** The router responsible for handling the requests of this route */
 	public readonly router: Router;
 
