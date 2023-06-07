@@ -33,4 +33,14 @@ describe("RouteHandler", () => {
 		expect(mockRoute).toBeInstanceOf(Route);
 		expect(Reflect.get(mockRoute!, methods.GET)).toBeTypeOf("function");
 	});
+
+	test("parseRoute", () => {
+		const path = join(process.cwd(), "tests", "mocks", "FileLoader");
+		const loader = new RouteHandler(path);
+
+		// @ts-expect-error function marked as protected
+		expect(loader.parseRoute("/test/index")).toBe("/test/");
+		// @ts-expect-error function marked as protected
+		expect(loader.parseRoute("/test/[id]")).toBe("/test/:id");
+	});
 });
