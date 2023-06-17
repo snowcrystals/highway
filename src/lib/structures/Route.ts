@@ -86,7 +86,7 @@ export interface RouteOptions {
 	/**
 	 * The Express Ratelimit options
 	 */
-	ratelimit?: RatelimitOptions;
+	ratelimit?: Partial<RatelimitOptions>;
 }
 
 export namespace Route {
