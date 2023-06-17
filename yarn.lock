@@ -880,6 +880,7 @@ __metadata:
     eslint-config-prettier: ^8.8.0
     eslint-plugin-prettier: ^4.2.1
     express: ^4.18.2
+    express-rate-limit: ^6.7.0
     glob: ^10.2.7
     husky: ^8.0.3
     is-ci: ^3.0.1
@@ -2888,6 +2889,15 @@ __metadata:
     signal-exit: ^3.0.7
     strip-final-newline: ^3.0.0
   checksum: feb446802885a0bace8400efdd7320f811203a53af29e8a65a6ff18e58582909eefeec31e163fbee9debcfeb7d464be2887beeb85c817ca873ac720064404247
+  languageName: node
+  linkType: hard
+
+"express-rate-limit@npm:^6.7.0":
+  version: 6.7.0
+  resolution: "express-rate-limit@npm:6.7.0"
+  peerDependencies:
+    express: ^4 || ^5
+  checksum: 7bd3f298b202cdb11c3d7c2dcff9be12c6885be5e64fb112f6c79103ba93a8e5d899ce15a5a3ce48f82190ab3515bed403e067dc3e42fc2832558cbe2620f955
   languageName: node
   linkType: hard
 

@@ -1,11 +1,15 @@
-import { Router, type IRouterMatcher, type Request, type Response, type NextFunction } from "express";
+import { Router, type IRouterMatcher, type Request, type Response, type NextFunction, type RequestHandler } from "express";
 import type { Server } from "../../Server.js";
 import { methods, type MethodCallback } from "#types/Methods.js";
 import type { Middleware } from "./Middleware.js";
+import { rateLimit, type Options as RatelimitOptions, type RateLimitRequestHandler } from "express-rate-limit";
 
 export abstract class Route<TServer extends Server = Server> {
 	/** The router responsible for handling the requests of this route */
 	public readonly router: Router;
+
+	/** The ratelimit component */
+	public readonly ratelimit?: RateLimitRequestHandler;
 
 	/** The path for this route */
 	public route: string;
@@ -23,6 +27,7 @@ export abstract class Route<TServer extends Server = Server> {
 		this.router = Router();
 		this.middleware = options.middleware ?? [];
 		this.route = options.route ?? "";
+		this.ratelimit = options.ratelimit ? rateLimit(options.ratelimit) : undefined;
 	}
 
 	/**
@@ -55,8 +60,11 @@ export abstract class Route<TServer extends Server = Server> {
 
 		const context = {};
 		const expressRouteFn = Reflect.get(this.router, method.toLowerCase()) as IRouterMatcher<any>;
-		if (typeof expressRouteFn === "function")
-			expressRouteFn.bind(this.router)(routePath, ...transformedMiddleware, (req, res, next) => route(req, res, next, context));
+		if (typeof expressRouteFn === "function") {
+			const baseHandlers: RequestHandler[] = [...transformedMiddleware, (req, res, next) => route(req, res, next, context)];
+			const handlers: RequestHandler[] = this.ratelimit ? [this.ratelimit.bind(this.ratelimit), ...baseHandlers] : baseHandlers;
+			expressRouteFn.bind(this.router)(routePath, handlers);
+		}
 	}
 }
 
@@ -74,6 +82,11 @@ export interface RouteOptions {
 	 * @example [[Methods.POST, "auth"]]
 	 */
 	middleware?: [symbol, ...string[]][];
+
+	/**
+	 * The Express Ratelimit options
+	 */
+	ratelimit?: RatelimitOptions;
 }
 
 export namespace Route {
