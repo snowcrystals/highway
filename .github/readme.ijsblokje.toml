@@ -1,0 +1,9 @@
+[project]
+icon = "https://raw.githubusercontent.com/snowcrystals/.github/main/logo.png"
+icon_width = "100px"
+version = "1.1.1"
+
+[variables]
+information = "Create routes and middleware using classes and a filepath based routing system like Next.js."
+installation = ["```", "yarn add @snowcrystals/highway express", "npm install @snowcrystals/highway express", "```", "\n{variables.example}"]
+examples = ".github/readme_extension.md"
