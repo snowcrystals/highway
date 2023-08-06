@@ -62,7 +62,7 @@
 		"vitest": "^0.33.0"
 	},
 	"dependencies": {
-		"@discordjs/collection": "^1.5.1",
+		"@discordjs/collection": "^1.5.2",
 		"express": "^4.18.2",
 		"express-rate-limit": "^6.8.1",
 		"glob": "^10.3.3"
