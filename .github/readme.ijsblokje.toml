@@ -1,9 +1,15 @@
+[repo]
+name = "highway"
+owner = "snowcrystals"
+description = "Building API routes has never been easier 🛣️"
+license = "MIT"
+
 [project]
 icon = "https://raw.githubusercontent.com/snowcrystals/.github/main/logo.png"
 icon_width = "100px"
-version = "1.1.1"
+version = "1.1.2"
 
 [variables]
 information = "Create routes and middleware using classes and a filepath based routing system like Next.js."
-installation = ["```", "yarn add @snowcrystals/highway express", "npm install @snowcrystals/highway express", "```", "\n{variables.examples}"]
+installation = [ "```", "yarn add @snowcrystals/highway express", "npm install @snowcrystals/highway express", "```", "\n{variables.examples}" ]
 examples = ".github/readme_extension.md"
