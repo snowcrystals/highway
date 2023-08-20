@@ -252,10 +252,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/collection@npm:^1.5.2":
-  version: 1.5.2
-  resolution: "@discordjs/collection@npm:1.5.2"
-  checksum: bf51b951c75c1622f78db4ab48382dc36ef62d264ebf3add07b4a29bef74e84ee1ca65b74e8cf3c9c16eef435dcf05c35465b32642bc7c0bac6872e226d100a7
+"@discordjs/collection@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "@discordjs/collection@npm:1.5.3"
+  checksum: fefed19bea0f69053d195f9d9dc8af07ca5d8c9b1064581e0aa14bda2b70e632b93c164d5ef3e4910f5442369612ff4eec8d52a700aec562510c19b223f67023
   languageName: node
   linkType: hard
 
@@ -900,7 +900,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.7.1
     "@commitlint/config-angular": ^17.7.0
-    "@discordjs/collection": ^1.5.2
+    "@discordjs/collection": ^1.5.3
     "@favware/cliff-jumper": ^2.1.1
     "@sapphire/eslint-config": ^4.4.3
     "@sapphire/prettier-config": ^1.4.5
