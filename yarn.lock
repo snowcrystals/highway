@@ -884,8 +884,8 @@ __metadata:
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
     express: ^4.18.2
-    express-rate-limit: ^6.9.0
-    glob: ^10.3.3
+    express-rate-limit: ^6.10.0
+    glob: ^10.3.4
     husky: ^8.0.3
     is-ci: ^3.0.1
     lint-staged: ^14.0.1
@@ -2729,12 +2729,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express-rate-limit@npm:^6.9.0":
-  version: 6.9.0
-  resolution: "express-rate-limit@npm:6.9.0"
+"express-rate-limit@npm:^6.10.0":
+  version: 6.10.0
+  resolution: "express-rate-limit@npm:6.10.0"
   peerDependencies:
     express: ^4 || ^5
-  checksum: a90662ecc1fb91f9accfcee5de90e4ee7ce486b6f806c22609213675ae0425c7c5d1b288c51907aeb347f1a5a492994032b805839a63f235c91c9235845c75f9
+  checksum: f8319d137f77ba622dfb545d17829ae92d9540aad012c16c519a8a6f5b2b11b1766de58d9ce01ff0881ee618f6a19583311e6f986e8c4c48f8f7435b23d95bbc
   languageName: node
   linkType: hard
 
@@ -3179,9 +3179,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.3.3":
-  version: 10.3.3
-  resolution: "glob@npm:10.3.3"
+"glob@npm:^10.3.4":
+  version: 10.3.4
+  resolution: "glob@npm:10.3.4"
   dependencies:
     foreground-child: ^3.1.0
     jackspeak: ^2.0.3
@@ -3190,7 +3190,7 @@ __metadata:
     path-scurry: ^1.10.1
   bin:
     glob: dist/cjs/src/bin.js
-  checksum: 29190d3291f422da0cb40b77a72fc8d2c51a36524e99b8bf412548b7676a6627489528b57250429612b6eec2e6fe7826d328451d3e694a9d15e575389308ec53
+  checksum: 176b97c124414401cb51329a93d2ba112cef8814adbed10348481916b9521b677773eee2691cb6b24d66632d8c8bb8913533f5ac4bfb2d0ef5454a1856082361
   languageName: node
   linkType: hard
 
