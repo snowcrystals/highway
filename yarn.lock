@@ -893,7 +893,7 @@ __metadata:
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
     express: ^4.18.2
-    express-rate-limit: ^6.11.2
+    express-rate-limit: ^7.1.1
     glob: ^10.3.10
     husky: ^8.0.3
     is-ci: ^3.0.1
@@ -2900,12 +2900,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express-rate-limit@npm:^6.11.2":
-  version: 6.11.2
-  resolution: "express-rate-limit@npm:6.11.2"
+"express-rate-limit@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "express-rate-limit@npm:7.1.1"
   peerDependencies:
     express: ^4 || ^5
-  checksum: 3cc4032ee2f7063647f45e338e10c9a67d8595a0f9a5a291d6633b6d96aab6201c8943bae74491f824cb6230a59921daec95ef4e22c1112759a766456c0f1f19
+  checksum: d5b6a171e7faad25ef38e280cc442fb3baa252b95a16c2fcaee4df04e17af25d89f5f05b9c45bdf4e465f01b3ec9ddab783e7a7427c1bb2138a51592845d2a3c
   languageName: node
   linkType: hard
 
